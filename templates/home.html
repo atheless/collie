@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if request.is_user_authenticated() %}
+            <h1>Welcome, {{ user.username }}!</h1>
+            <p>You are looking at {{ title }}!</p>
+            <p>Your session: {{ user.sessions[-1].session_token }}</p>
+            <p>Your email: {{ user.email }}</p>
+            <p><a href="/logout">Logout</a></p>
+        {% else %}
+            <h1>Welcome, Guest!</h1>
+            <p>You are looking at {{ title }}!</p>
+            <p>If you haven't already, please <a href="/login">login</a> to access your account.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,5 @@
+tests/*
+.idea/*
+.venv/*
+sqlite_database.db
+**/__pycache__/
