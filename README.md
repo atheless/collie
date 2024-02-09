@@ -11,7 +11,7 @@ Collie includes the following features commonly found in many frameworks:
 - CORS
 - CSRF (not yet)
 - Permissions (not yet)
-- Middleware caching (not yet)
+- Middleware chaining (not yet)
 - Global settings
 - Command manager (manage.py)
 - Support for class-based APIs (serialization/deserialization) and asynchronous caching with TTL.
