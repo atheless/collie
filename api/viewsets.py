@@ -1,12 +1,9 @@
-import json
 from abc import ABC, abstractmethod
 
-from async_lru import alru_cache
 
-import app
-from api.serializers import UserSerializer
-from responses import Response, JSONResponse
-from security.models import User
+from app import app
+
+from responses import Response
 
 
 class APIView(ABC):
@@ -55,7 +52,7 @@ class APIView(ABC):
 class BaseModelView:
     model = None
     serializer_class = None
-    relational_database = app.app.db
+    relational_database = app.db
     ACCESS_CONTROL_ALLOW_METHODS = ['*']
     ACCESS_CONTROL_ALLOW_HEADERS = ['Content-Type']
 

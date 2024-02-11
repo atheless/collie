@@ -39,3 +39,4 @@ class Redirect(Response):
         if headers:
             self.response_header.append(*headers)
         self.body = f"Redirecting to {location}"
+

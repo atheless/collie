@@ -14,6 +14,8 @@ class Application:
 
     @staticmethod
     async def handle_request(scope: Dict[str, Any], receive: Callable, send: Callable) -> None:
+        from urls import router
+
         if scope['type'] == 'http':
             path = scope['path']
             data = dict(await receive())
@@ -39,9 +41,8 @@ class Application:
 
 
 app = Application(session_manager=SessionManager(), rdb=rdatabase)
-
 # Define routes for routing.
-from urls import router
+
 
 # if DEBUG:
     # populate_tables(app.db, num_users=1)

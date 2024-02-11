@@ -6,6 +6,10 @@ import sys
 
 import uvicorn
 from rich.console import Console
+
+from BackgroundTaskManager import task_manager
+
+
 def run_server(environment):
     import uvicorn
     os.environ["APP_ENV"] = environment
@@ -16,15 +20,18 @@ def run_server(environment):
     console = Console()
     console.rule(f"[bold red] Running in {environment} environment", align="left")
 
-    uvicorn.run(
-        "app:app",
-        host=host,
-        port=port,
-        workers=workers,
-        log_level="info",
-        reload=True if environment == "dev" else False,
-        server_header=False,
-    )
+    try:
+        uvicorn.run(
+            "app:app",
+            host=host,
+            port=port,
+            workers=workers,
+            log_level="info",
+            reload=True if environment == "dev" else False,
+            server_header=False,
+        )
+    finally:
+        task_manager.__stop()
 
 
 if __name__ == "__main__":
