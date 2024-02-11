@@ -16,6 +16,8 @@ Collie includes the following features commonly found in many frameworks:
 - Command manager (manage.py)
 - Support for class-based APIs (serialization/deserialization) and asynchronous caching with TTL.
 - Generic views (currently limited to functional views)
+- Auto reload
+- Background Task Manager
 
 # Benchmarks 📈
 Tests were conducted using PyPy with a single uvicorn worker. You can also conduct your own tests; here are my results:
@@ -32,6 +34,3 @@ Requests/sec:   9337.11
 Transfer/sec:     20.50MB
 ```
 As you can see, it's blazingly fast even with just a single worker
-
-# Why?
-I just got bored.
